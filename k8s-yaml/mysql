@@ -1,0 +1,2 @@
+
+mysql  -h rc1a-0clsncctrylxxhhs.mdb.yandexcloud.net --user=simpleapp-owner	 --password
