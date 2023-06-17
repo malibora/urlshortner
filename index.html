@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>URL Shortner</title>
+  <style>
+    /* CSS code goes here */
+    /* Reset default browser styles */
+    html,
+    body,
+    h1,
+    p,
+    input,
+    button {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Set a background color and center the content */
+    body {
+      background-color: #f2f2f2;
+      justify-content: top;
+      align-items: center;
+      height: 100vh;
+    }
+
+
+
+    /* Style the text input */
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      outline: none;
+
+    }
+
+    /* Style the button */
+    button {
+      padding: 10px 20px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      outline: none;
+
+    }
+
+    .fixeddiv{
+      position: fixed;
+
+      z-index: 999;
+    }
+    /* On hover, darken the button color */
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div id="fixeddiv">
+    <input type="text" id="txtUrl" placeholder="insert url here">
+    <button type="button" id="btnSubmit" text="submit">Submit</button>
+</div>
+    <p id="txtSummary"></p>
+    <script>
+    document.getElementById('btnSubmit').onclick = ()=>{
+        let url = document.getElementById('txtUrl').value
+        let txt = fetch(`/shorten?url=${url}`,  { mode: 'no-cors'})
+            .then(response => {debugger;return response.text()})
+            .then(txt=>{ 
+              document.getElementById('txtSummary').innerHTML =window.location.href + txt
+              console.log(txt)
+          })
+           
+      
+    }
+</script>
+</body>
+</html>
