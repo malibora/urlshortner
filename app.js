@@ -6,11 +6,11 @@ const config = {
     host     : 'rc1a-0clsncctrylxxhhs.mdb.yandexcloud.net',
     port     : 3306,
     user     : 'simpleapp-owner',
-    password : 'asdf1234',
+    password : process.env.DB_PASS,
     database : 'simpleapp',
     ssl: {
         rejectUnauthorized: false,
-        ca: fs.readFileSync('/.mysql/root.crt').toString(),
+        ca: fs.readFileSync('/home/node/.mysql/root.crt').toString(),
     },
 }
 

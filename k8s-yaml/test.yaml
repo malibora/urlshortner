@@ -17,6 +17,12 @@ spec:
           image: bpopov/urlshortner
           ports:
             - containerPort: 80
+      env:
+        - name: DB_PASS
+          valueFrom:
+            secretKeyRef:
+              name: simpleapp
+              key: dbpass
 
 ---
 apiVersion: v1
